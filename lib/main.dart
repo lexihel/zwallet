@@ -6,6 +6,7 @@ import 'dart:math';
 import 'dart:ui';
 
 import 'package:camera/camera.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:flutter_zxing/flutter_zxing.dart';
 import 'package:path/path.dart' as p;
 import 'package:csv/csv.dart';
@@ -325,6 +326,15 @@ class ZWalletAppState extends State<ZWalletApp> {
 
       if (!initialized || recover || exportDb) {
         initialized = true;
+        final secureStorage = new FlutterSecureStorage();
+        var key = await secureStorage.read(key: APP_NAME + ":db_key");
+        if (key == null) {
+          final r = Random.secure();
+          final randomKey = List<int>.generate(32, (index) => r.nextInt(256)).toList();
+          key = base64Url.encode(randomKey);
+          await secureStorage.write(key: APP_NAME + ":db_key", value: key);
+        }
+
         final dbPath = await getDbPath();
         for (var coin in coins) {
           coin.init(dbPath);
@@ -340,12 +350,12 @@ class ZWalletAppState extends State<ZWalletApp> {
             await coin.importFromTemp();
           }
         }
-        print("db path $dbPath");
+        print("db path $dbPath $key");
         WarpApi.mempoolRun(unconfirmedBalancePort.sendPort.nativePort);
         for (var coin in coins) {
           _setProgress(0.1 * (coin.coin+1), 'Initializing ${coin.ticker}');
-          WarpApi.migrateWallet(coin.coin, coin.dbFullPath);
-          WarpApi.initWallet(coin.coin, coin.dbFullPath);
+          WarpApi.initWallet(coin.coin, coin.dbFullPath, key);
+          WarpApi.migrateWallet(coin.coin);
         }
 
         _setProgress(0.6, 'Migrate Data');

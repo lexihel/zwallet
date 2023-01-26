@@ -71,10 +71,12 @@ class NativeLibrary {
   CResult_u8 init_wallet(
     int coin,
     ffi.Pointer<ffi.Int8> db_path,
+    ffi.Pointer<ffi.Int8> password,
   ) {
     return _init_wallet(
       coin,
       db_path,
+      password,
     );
   }
 
@@ -85,11 +87,9 @@ class NativeLibrary {
 
   CResult_u8 migrate_db(
     int coin,
-    ffi.Pointer<ffi.Int8> db_path,
   ) {
     return _migrate_db(
       coin,
-      db_path,
     );
   }
 
@@ -1438,21 +1438,21 @@ typedef _dart_deallocate_bytes = void Function(
 typedef _c_init_wallet = CResult_u8 Function(
   ffi.Uint8 coin,
   ffi.Pointer<ffi.Int8> db_path,
+  ffi.Pointer<ffi.Int8> password,
 );
 
 typedef _dart_init_wallet = CResult_u8 Function(
   int coin,
   ffi.Pointer<ffi.Int8> db_path,
+  ffi.Pointer<ffi.Int8> password,
 );
 
 typedef _c_migrate_db = CResult_u8 Function(
   ffi.Uint8 coin,
-  ffi.Pointer<ffi.Int8> db_path,
 );
 
 typedef _dart_migrate_db = CResult_u8 Function(
   int coin,
-  ffi.Pointer<ffi.Int8> db_path,
 );
 
 typedef _c_migrate_data_db = CResult_u8 Function(

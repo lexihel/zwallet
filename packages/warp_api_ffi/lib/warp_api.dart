@@ -80,16 +80,16 @@ class WarpApi {
     throw UnsupportedError('This platform is not supported.');
   }
 
-  static void migrateWallet(int coin, String dbPath) {
-    unwrapResultU8(warp_api_lib.migrate_db(coin, toNative(dbPath)));
+  static void migrateWallet(int coin) {
+    unwrapResultU8(warp_api_lib.migrate_db(coin));
   }
 
   static void migrateData(int coin) {
     unwrapResultU8(warp_api_lib.migrate_data_db(coin));
   }
 
-  static void initWallet(int coin, String dbPath) {
-    unwrapResultU8(warp_api_lib.init_wallet(coin, toNative(dbPath)));
+  static void initWallet(int coin, String dbPath, String password) {
+    unwrapResultU8(warp_api_lib.init_wallet(coin, toNative(dbPath), toNative(password)));
   }
 
   static void resetApp() {
