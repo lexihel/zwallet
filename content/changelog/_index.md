@@ -4,90 +4,50 @@ weight: 80
 icon: wrench
 ---
 
-### 1.2.15
+# 1.2.17
 
-- [Background Synchronization]({{<relref "synchronization#background-sync">}})
-- Background Tx Building
-- [Local Notifications]({{<relref "synchronization#local-notifications">}})
+## NU-5 / Orchard
+- **Warp Sync support for Orchard**
+- Seamless account migration from previous versions
+- Sapling & Orchard Transaction Builder
+- **Privacy-oriented Transaction Optimizer**
+- Minimum Privacy Blocker
+- Pool Transfer Page
+- Offline Signer (recommended for high value usage scenarios)
 
-### 1.2.14
+## UA
+- Multi receiver UA
+- UA Receiver Selection
+- Sapling/Orchard merged accounts
+- Unified Viewing Key
+- Unified Diversified Addresses
+- Unified Payment URI
+- Contacts with UA
 
-- [Table/List views for Messages, Notes and Transaction History]({{<relref "views">}})
-- Synchronization updates account balance, notes and transaction progressively
+## Batch Backups
+- Strongly Encrypted with state of the art PK/SK encryption
+- Saves every ZCASH & YCASH account
+- Saves synchronization data
+- Compatible between devices & portable between platforms
+- Upward compatible
+- Recoverable with third-party open source tools
 
-### 1.2.13
+## UI
+- Pre-flight Transaction Report
+- Import QR code from image
+- Export QR code to PNG
 
-- Use lightwalletd spam filter when available
-- Bug fix: Reorg sometimes loses sapling witnesses
-- UX improvements
-    - Spending is allowed during synchronization
-    - Unconfirmed balance (if supported by the server)
+## UI Framework
+- Upgrade to Flutter 3.7.x
+- UI Revamp: Material UI 3
+- Per coin settings
 
-{{%img_index "Screenshot_20220912-214736.jpg" %}}
+## Distribution
+- Universal DMG for MacOS (Intel & Apple chips)
+- Android build without Google Play and Google Services. 
+  - Runs on FDroid, GrapheneOS, LineageOS, etc.
+  - Recommended version for a hardware signer
+- AppImage added
+- Github Auto-builder for all platforms (except iOS)
+- CI Auto publish to Google Play
 
-### 1.2.12
-
-- [Pause/Resume Sync]({{<relref "synchronization#pauseresume">}})
-- [Import Transparent Private Keys]({{<relref "custom_path#private-key">}})
-- [Key Derivation Tool]({{<relref "keytool">}})
-- [More synchronization statistics]({{<relref "synchronization#statistics">}})
-- [Spam Filter]({{<relref "misc">}})
-
-### 1.2.11
-
-- [Custom Derivation Path for taddrs]({{<relref "custom_path">}})
-- [Import from ZWL]({{<relref "zwl">}})
-- [Accessibility Improvements]({{<relref "synchronization">}})
-
-### 1.2.10
-
-- [Autoconnect to best server]({{<relref "server">}})
-- [Create multiple subaccounts at once]({{<relref "sub-account#sub-accounts">}})
-
-### 1.2.9
-
-- [New Welcome Page]({{<relref "first-account">}})
-- Variable Length Block Chunks
-- Resumable WarpSync
-
-### 1.2.8
-
-- New [WarpSync backend](https://github.com/hhanh00/zcash-sync.git)
-- Payment and Sync animations and sounds
-- Cold Signing through RaptorQ animated QR codes
-
-### 1.2.7
-
-- Automatic Scan of transparent accounts in order
-to recover funds from legacy wallets
-
-### 1.2.6
-
-- Option to protect the app launch with a pin code / fingerprint
-
-### 1.2.5
-
-- Support for the NU-5 transaction format
-- Update to Flutter 3.0
-
-### 1.2.3-1.2.4
-
-- Message Center
-- Offline signing
-- MSIX installer
-
-### 1.2.2
-
-- Autocreate first account
-- Update dependencies
-
-### 1.2.1
-
-- Desktop Versions
-- Sub-Accounts ZIP 32
-- Optimize Data Refresh
-- Rescan from Height
-
-## 1.2.0
-
-- Unification Ycash/Zcash
