@@ -1,7 +1,10 @@
 #syntax=docker/dockerfile:1.2
 FROM hhanh00/zwallet_builder_linux AS builder
-
+ARG FLUTTER_VERSION
 ENV PATH $PATH:/flutter/bin:/root/.cargo/bin
+
+RUN git clone -b $FLUTTER_VERSION --depth 1 https://github.com/flutter/flutter.git /flutter
+RUN flutter doctor -v
 
 COPY . /zwallet
 
@@ -18,4 +21,4 @@ COPY --from=builder /zwallet/target/release/libwarp_api_ffi.so /root/misc/root/
 RUN mkdir /root/repo
 
 WORKDIR /root/misc
-ENTRYPOINT ["/root/build-flatpak2.sh"]
+ENTRYPOINT ["/root/build-scripts/build-flatpak2.sh"]
