@@ -4,7 +4,11 @@ weight: 80
 icon: wrench
 ---
 
-# 1.2.17
+# 1.3.1
+
+- Desktop versions save/restore the app window size
+
+# 1.3.0
 
 ## NU-5 / Orchard
 - **Warp Sync support for Orchard**
