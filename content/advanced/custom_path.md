@@ -64,6 +64,23 @@ This feature is not compatible with the autoscan feature.
 
 {{%img 2022-07-17_12-12-34.png %}}
 
+## Sweep Funds
+
+{{%img 2023-02-21_19-30-27.png %}}
+
+If you have a private key from an external account with funds that you want to bring to 
+YWallet, you can sweep them without having to modify your current account.
+
+In fact, this is the recommended way for it leaves your account unchanged. The other methods
+replace the transparent key derived from your seed phrase.
+
+- Choose "Sweep" in the Advanced Menu. Turn on Advanced Mode if you haven't done it already.
+- Enter the private key
+- Select the destination pool
+- Press OK
+
+A transaction will be broadcast that transfers all the funds to the designated pool in your current account.
+ 
 ## Demo
 
 {{%youtube LmIrVUA0tFM %}}
