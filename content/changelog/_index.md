@@ -4,9 +4,14 @@ weight: 80
 icon: wrench
 ---
 
-# 1.3.1
+# 1.3.3
 
+- [Sweep external transparent address]({{< relref "custom_path#sweep-funds">}})
 - Desktop versions save/restore the app window size
+- Fix crash when sending to t3 addresses
+- Hide titlebar on MacOS
+- Barcode scanner & QR save for Batch Backups
+- Bug fixes
 
 # 1.3.0
 
